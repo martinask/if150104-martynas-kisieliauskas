@@ -1,0 +1,226 @@
+<html>
+    <title>Submit Form without Page Refresh - PHP/jQuery - TecAdmin.net</title>
+    <head>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+    </head>
+    <body>
+        <div class="container padding-top-l">
+
+
+            <div class="padding-top-s"></div>
+            <div class="col-12">
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <form id="myForm needs-validation" method="post" novalidate>
+                            <div class="form-group">
+
+
+                                <label>Ploksciu kiekis paneleje</label>
+                                <div class="input-group">
+                                    <input class="form-control" name="pl_kiekis" id="pl_kiekis" type="number"  required />
+                                </div>
+
+
+                                <label  style="padding-top:10px;">Plokstes tipas</label> 
+                                <div class="radio">
+                                    <label><input type="radio" name="tipas" value="1" required="true">Vienpusis</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="tipas" value="2" required="true">Dvipusis</label>
+                                </div> 
+
+
+
+
+
+
+                                <label style="padding-top:10px;">SMT komponentura nomenklatura</label>
+                                <div class="input-group mb-3">
+
+                                    <input class="form-control" name="nomenklatura" id="nomenklatura" type="number" required />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">komp.</span>
+                                    </div>
+                                </div>
+
+
+
+                                <label>SMT komponentu skaicius ploksteje</label>
+                                <div class="input-group mb-3">
+
+                                    <input class="form-control" name="smt_skaicius" id="smt_skaicius" type="number" required />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">komp.</span>
+                                    </div>
+                                </div>
+
+
+
+
+                                <label>SMT rankinis darbas</label>
+                                <div class="input-group mb-3">
+
+                                    <input class="form-control" name="smt_komp" id="smt_komp" type="number" required/>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">komp.</span>
+                                    </div>
+                                </div>
+
+
+
+                                <label>LL komponentu skaicius ploksteje</label>
+                                <div class="input-group mb-3">
+
+                                    <input class="form-control" name="ll_skaicius" id="ll_skaicius" type="number" required/>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">komp.</span>
+                                    </div>
+                                </div>
+
+
+
+
+                                <label>LL maskavimo kiaurymiu skaicius</label>
+                                <div class="input-group mb-3">
+
+                                    <input class="form-control" name="ll_kiaur" id="ll_kiaur" type="number" required/>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">kiaurym.</span>
+                                    </div>
+                                </div>
+
+
+                                <label>RS litavimo tašku skaicius</label>
+                                <div class="input-group mb-3">
+
+                                    <input class="form-control" name="rs_taskai" id="rs_taskai" type="number" required/>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">kiaurym.</span>
+                                    </div>
+                                </div>
+
+
+
+                                <label>Programavimo ir testavimo darbai</label>
+                                <div class="input-group mb-3">
+
+                                    <input class="form-control" name="prog_darbai" id="prog_darbai" type="number" required/>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">min.</span>
+                                    </div>
+                                </div>
+
+
+                                <label>Papildomu darbu laikas</label>
+                                <div class="input-group mb-3">
+
+                                    <input class="form-control" name="pap_laikas" id="pap_laikas" type="number" required/>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">min.</span>
+                                    </div>
+                                </div>
+
+                                <label>Įveskite planuojama uzsakymo kieki</label>
+                                <div class="input-group mb-3">
+
+                                    <input class="form-control" name="kiekis" id="kiekis" type="number" required/>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">vnt.</span>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="padding-top-s"></div>
+                                <button type="button" class="btn btn-success"  id="submitFormData" onclick="SubmitFormData();" value="Submit" >Skaičiuoti</button>
+
+
+
+                            </div>
+                        </form>
+                    </div>
+                    <script>
+                        $(document).ready(function(){
+                            $('#submitFormData').click(function() {
+                                $("#submitFormData").text('Perskaičiuoti');
+                            })
+                        });
+                    </script>
+
+
+
+
+                    <!--
+<script>
+
+
+
+$(':input').change(function(){
+if($(':input').val()==''){
+$('button').attr('disabled',true)
+} 
+else{
+$('button').attr('disabled',false);
+}
+})
+</script>
+-->
+
+
+
+
+
+                    <div class="col-md-6">
+                        <h3>Rezultatai</h3>
+
+
+                        <div id="results" class="print-only">
+
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="padding-top-l"></div>
+
+    </body>
+
+</html>
+
+
+<script>
+    function SubmitFormData() {
+        var pl_kiekis = $("#pl_kiekis").val();
+        var tipas = $("input[type=radio]:checked").val();
+        var nomenklatura = $("#nomenklatura").val();
+        var smt_skaicius = $("#smt_skaicius").val();
+        var smt_komp = $("#smt_komp").val();
+        var ll_skaicius = $("#ll_skaicius").val();
+        var ll_kiaur = $("#ll_kiaur").val();
+        var rs_taskai = $("#rs_taskai").val();
+        var prog_darbai = $("#prog_darbai").val();
+        var pap_laikas = $("#pap_laikas").val();
+        var kiekis = $("#kiekis").val();
+        $.post("submit.php", { pl_kiekis: pl_kiekis, tipas: tipas, nomenklatura: nomenklatura, smt_skaicius: smt_skaicius, smt_komp: smt_komp, ll_skaicius: ll_skaicius, ll_kiaur: ll_kiaur, rs_taskai: rs_taskai, prog_darbai: prog_darbai, pap_laikas: pap_laikas, kiekis: kiekis },
+               function(data) {
+            $('#results').html(data);
+            //	 $('#myForm')[0].reset();
+        });
+    }
+</script>
+
+
+
